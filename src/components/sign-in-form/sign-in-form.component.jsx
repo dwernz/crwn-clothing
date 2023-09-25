@@ -22,19 +22,17 @@ const SignInForm = () => {
     }
 
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopup();
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-
-            console.log(response);
+            const {user} = await signInAuthUserWithEmailAndPassword(email, password);
 
             resetFormFields();
+            // setCurrentUser(user);
         } catch (error) {
             if (error.code === 'auth/wrong-password') {
                 alert('Incorrect username/password combination');
