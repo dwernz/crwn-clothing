@@ -21,7 +21,9 @@
         height: 240px;
         display: flex;
         flex-direction: column;
-        overflow: scroll;
+        // overflow: scroll; changed to auto for y and hidden for x. The scroll bars showed regardless. Didn't like the horizontal scroll bar there. vertical should only be displayed if needed.
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     button {
